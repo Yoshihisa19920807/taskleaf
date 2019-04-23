@@ -3,12 +3,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
-gem 'sqlite3', groups: %w(test development), require: false
-
-gem 'pg', groups: %w(production), require: false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
+# Use postgresql as the database for Active Record
+# gem 'pg', '>= 0.18', '< 2.0'
+group :production do
+  gem 'pg', '0.20.0'
+end
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -71,3 +73,5 @@ gem 'bootstrap'
 gem 'rails_autolink'
 gem 'ransack'
 gem 'mailcatcher'
+
+
